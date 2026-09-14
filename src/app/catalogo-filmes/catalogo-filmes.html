@@ -1,0 +1,85 @@
+<div class="pagina">
+  <header class="cabecalho">
+    <a class="marca" href="./" aria-label="CineLista, página inicial"><span aria-hidden="true">▶</span> CineLista</a>
+    <span class="etiqueta">SEU CATÁLOGO DE FILMES</span>
+  </header>
+
+  <main>
+    <section class="introducao" aria-labelledby="titulo">
+      <p class="sobretitulo">LUZ, CÂMERA, SUA LISTA.</p>
+      <h1 id="titulo">Toda boa história<br>merece um <span>play.</span></h1>
+      <p>Escolha um filme, marque seu favorito e registre cada sessão.</p>
+    </section>
+
+    <div class="layout">
+      <section class="painel catalogo" aria-labelledby="titulo-catalogo">
+        <div class="titulo-secao">
+          <h2 id="titulo-catalogo">No seu catálogo</h2>
+          <span class="contador">{{ filmes.length }} filmes</span>
+        </div>
+        <p class="apoio">Selecione um título para começar.</p>
+
+        <ul class="lista-filmes">
+          @for (filme of filmes; track filme; let indice = $index) {
+            <li>
+              <button type="button" class="filme"
+                (click)="selecionarFilme(filme)"
+                [class.selecionado]="filmeSelecionado === filme"
+                [class.favorito]="filmeSelecionado === filme && favorito"
+                [attr.aria-pressed]="filmeSelecionado === filme">
+                <span class="numero">{{ indice + 1 < 10 ? '0' : '' }}{{ indice + 1 }}</span>
+                <span class="nome-filme">{{ filme }}</span>
+                <span class="seta" aria-hidden="true">{{ filmeSelecionado === filme && favorito ? '★' : '↗' }}</span>
+              </button>
+            </li>
+          }
+        </ul>
+
+        <form class="adicionar" (ngSubmit)="adicionarFilme()">
+          <label for="novo-filme">Qual é o próximo da lista?</label>
+          <div class="campo-acao">
+            <input id="novo-filme" name="novoFilme" type="text"
+              [(ngModel)]="novoFilme" (ngModelChange)="mensagem = ''"
+              placeholder="Digite o nome de um filme" maxlength="150" autocomplete="off"
+              aria-describedby="mensagem">
+            <button type="submit" class="botao principal" [disabled]="!novoFilme.trim()">Adicionar</button>
+          </div>
+          <p id="mensagem" class="mensagem" role="status">{{ mensagem }}</p>
+        </form>
+      </section>
+
+      <section class="painel detalhes" aria-labelledby="titulo-detalhes">
+        <p class="sobretitulo" id="titulo-detalhes">SUA SESSÃO</p>
+        @if (filmeSelecionado) {
+          <article class="cartao-selecionado" [class.favorito]="favorito">
+            <div class="icone-cinema" aria-hidden="true">{{ favorito ? '★' : '▶' }}</div>
+            <span class="estado">{{ favorito ? 'NA SUA LISTA DE FAVORITOS' : 'FILME SELECIONADO' }}</span>
+            <h2>{{ filmeSelecionado }}</h2>
+            <div class="visualizacoes" aria-live="polite" aria-atomic="true">
+              <strong>{{ visualizacoes }}</strong>
+              <span>{{ visualizacoes === 1 ? 'visualização' : 'visualizações' }}</span>
+            </div>
+            <button type="button" class="botao botao-favorito" (click)="alternarFavorito()" [attr.aria-pressed]="favorito">
+              {{ favorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos' }}
+            </button>
+            <button type="button" class="botao principal" (click)="aumentarVisualizacoes()">+ Registrar visualização</button>
+          </article>
+          <p class="nota">Ao escolher outro filme, o favorito e as visualizações são reiniciados.</p>
+        } @else {
+          <div class="vazio">
+            <div class="icone-cinema" aria-hidden="true">▶</div>
+            <h2>Nenhum filme selecionado</h2>
+            <p>Seu próximo filme está na lista.<br>Clique em um título para ver os detalhes.</p>
+          </div>
+        }
+      </section>
+    </div>
+  </main>
+  <footer>
+    <span>CineLista · AC1</span>
+    <div class="integrantes">
+      <span>Gabriel Henrique Fernandes Torres · RA 251157</span>
+      <span>Alexandre · RA 251956</span>
+    </div>
+  </footer>
+</div>

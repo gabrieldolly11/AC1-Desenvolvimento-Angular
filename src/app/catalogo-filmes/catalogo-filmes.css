@@ -1,0 +1,60 @@
+ :host { display: block; }
+.pagina { max-width: 1160px; margin: auto; padding: 0 40px; }
+.cabecalho { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; border-bottom: 1px solid #303638; gap: 20px; }
+.marca { text-decoration: none; color: #f4f5f0; font-weight: 800; font-size: 24px; letter-spacing: -1px; }
+.marca span { color: #c8f17c; font-size: 19px; margin-right: 8px; }
+.etiqueta, .sobretitulo { font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.etiqueta { color: #afb8b9; }
+.introducao { padding: 46px 0 32px; }
+.sobretitulo { color: #c8f17c; margin: 0 0 18px; }
+h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -2px; margin: 0 0 20px; }
+h1 span { color: #c8f17c; }
+.introducao > p:last-child { color: #b0b9ba; line-height: 1.6; font-size: 15px; }
+.layout { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: stretch; }
+.painel { border: 1px solid #343c3f; background: #1a2023; border-radius: 18px; padding: 28px; min-width: 0; }
+.titulo-secao { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+h2 { margin: 0; font-size: 21px; letter-spacing: -.5px; }
+.contador { background: #303a3c; border-radius: 20px; padding: 7px 11px; font-size: 12px; white-space: nowrap; color: #d4ddda; }
+.apoio { color: #acb6b7; font-size: 13px; margin: 10px 0 22px; }
+.lista-filmes { padding: 0; list-style: none; display: grid; gap: 9px; margin: 0 0 28px; }
+.filme { width: 100%; display: flex; align-items: center; text-align: left; gap: 14px; border: 1px solid #354044; border-radius: 10px; background: #222a2e; color: #eef1ed; padding: 16px 14px; min-height: 58px; }
+.filme:hover { background: #2c373a; border-color: #869496; }
+.numero { font-size: 12px; color: #a8b4b8; font-variant-numeric: tabular-nums; }
+.nome-filme { font-size: 14px; font-weight: 600; flex: 1; overflow-wrap: anywhere; line-height: 1.4; }
+.seta { color: #bfc8c6; }
+.filme.selecionado { border-color: #c8f17c; background: #29362b; }
+.filme.favorito { border-color: #f5d17c; background: #393322; }
+.filme.favorito .seta { color: #f5d17c; }
+.adicionar { border-top: 1px solid #354044; padding-top: 22px; }
+label { display: block; margin-bottom: 12px; font-size: 14px; font-weight: 600; }
+.campo-acao { display: flex; gap: 9px; }
+input { min-width: 0; width: 100%; border: 1px solid #526066; border-radius: 8px; background: #101719; color: #f4f5f0; padding: 13px 12px; font-size: 13px; }
+input::placeholder { color: #aab6b7; }
+.botao { border-radius: 8px; border: 1px solid transparent; padding: 13px 16px; font-size: 13px; font-weight: 700; line-height: 1.4; }
+.principal { background: #c8f17c; color: #142010; }
+.principal:hover:not(:disabled) { background: #dafaa2; }
+.principal:disabled { background: #354238; color: #a9b5a4; }
+.mensagem { min-height: 17px; margin: 10px 0 0; font-size: 12px; color: #d6e8b9; }
+.detalhes { display: flex; flex-direction: column; }
+.detalhes > .sobretitulo { color: #b3bfc0; }
+.vazio { margin: auto 0; text-align: center; padding: 44px 0; }
+.icone-cinema { width: 74px; height: 74px; border-radius: 20px; margin: 0 auto 26px; display: grid; place-items: center; background: #2b3830; border: 1px solid #506344; color: #c8f17c; font-size: 29px; }
+.vazio h2 { font-size: 20px; }
+.vazio p { font-size: 14px; color: #adb8ba; line-height: 1.8; }
+.cartao-selecionado { text-align: center; padding: 24px 18px; border-radius: 12px; border: 1px solid #3e4a43; background: #202a25; }
+.cartao-selecionado.favorito { background: #332f22; border-color: #b69858; }
+.cartao-selecionado.favorito .icone-cinema { background: #423923; color: #f5d17c; border-color: #b69858; }
+.estado { color: #d0d9ca; font-size: 10px; letter-spacing: 1px; }
+.cartao-selecionado h2 { font-size: 27px; line-height: 1.2; margin: 12px 0; overflow-wrap: anywhere; }
+.visualizacoes { display: flex; flex-direction: column; gap: 4px; padding: 12px 0 24px; }
+.visualizacoes strong { font-size: 42px; color: #f4f5f0; }
+.visualizacoes span { color: #b9c4ba; font-size: 12px; }
+.cartao-selecionado .botao { width: 100%; margin-top: 9px; }
+.botao-favorito { background: transparent; border-color: #8d9f8e; color: #f0f3e9; }
+.botao-favorito:hover { background: #ffffff0d; }
+.nota { font-size: 12px; color: #b0bcbd; line-height: 1.6; margin: 20px 0 0; }
+footer { display: flex; justify-content: space-between; gap: 16px; padding: 30px 0; margin-top: 20px; font-size: 12px; color: #a4b0b3; border-top: 1px solid #303638; }
+@media(max-width: 760px) { .pagina { padding: 0 20px; } .layout { grid-template-columns: 1fr; } .painel { padding: 22px; } .etiqueta { display: none; } .introducao { padding-top: 34px; } .detalhes { min-height: 330px; } }
+@media(max-width: 400px) { .campo-acao { flex-direction: column; } footer { flex-direction: column; } }
+
+.integrantes { display: flex; flex-direction: column; gap: 8px; line-height: 1.5; overflow-wrap: anywhere; }
