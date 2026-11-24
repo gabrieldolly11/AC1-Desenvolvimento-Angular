@@ -4,8 +4,8 @@ Desenvolvimento Web Front-End - Facens.
 
 ## Integrantes
 
-- Gabriel Henrique Fernandes Torres - RA 251157
-- Alexandre - RA 251956
+- Gabriel Henrique Fernandes Torres
+- Alexandre
 
 ## Projeto
 
